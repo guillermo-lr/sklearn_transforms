@@ -34,6 +34,13 @@ class Scalador(BaseEstimator, TransformerMixin):
     def transform(self, X):
         # Primero copiamos el dataframe de datos de entrada 'X'
         data = X.copy()
-        data[self.columns] = StandardScaler().fit_transform(data[self.columns])
+        data["HOURS_DATASCIENCE", "HOURS_BACKEND", "HOURS_FRONTEND",
+    "NUM_COURSES_BEGINNER_DATASCIENCE", "NUM_COURSES_BEGINNER_BACKEND", "NUM_COURSES_BEGINNER_FRONTEND",
+    "NUM_COURSES_ADVANCED_DATASCIENCE", "NUM_COURSES_ADVANCED_BACKEND", "NUM_COURSES_ADVANCED_FRONTEND",
+    "AVG_SCORE_DATASCIENCE", "AVG_SCORE_BACKEND", "AVG_SCORE_FRONTEND"] = StandardScaler().fit_transform(data[
+     "HOURS_DATASCIENCE", "HOURS_BACKEND", "HOURS_FRONTEND",
+    "NUM_COURSES_BEGINNER_DATASCIENCE", "NUM_COURSES_BEGINNER_BACKEND", "NUM_COURSES_BEGINNER_FRONTEND",
+    "NUM_COURSES_ADVANCED_DATASCIENCE", "NUM_COURSES_ADVANCED_BACKEND", "NUM_COURSES_ADVANCED_FRONTEND",
+    "AVG_SCORE_DATASCIENCE", "AVG_SCORE_BACKEND", "AVG_SCORE_FRONTEND"])
         # Devolvemos un nuevo dataframe de datos sin las columnas no deseadas
         return data
