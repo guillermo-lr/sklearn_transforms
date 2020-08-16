@@ -17,7 +17,9 @@ class DropColumns(BaseEstimator, TransformerMixin):
     
     
     
+from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.preprocessing import StandardScaler
+
 
 
 class Scalador(BaseEstimator, TransformerMixin):
@@ -34,13 +36,13 @@ class Scalador(BaseEstimator, TransformerMixin):
     def transform(self, X):
         # Primero copiamos el dataframe de datos de entrada 'X'
         data = X.copy()
-        data["HOURS_DATASCIENCE", "HOURS_BACKEND", "HOURS_FRONTEND",
+        data[["HOURS_DATASCIENCE", "HOURS_BACKEND", "HOURS_FRONTEND",
     "NUM_COURSES_BEGINNER_DATASCIENCE", "NUM_COURSES_BEGINNER_BACKEND", "NUM_COURSES_BEGINNER_FRONTEND",
     "NUM_COURSES_ADVANCED_DATASCIENCE", "NUM_COURSES_ADVANCED_BACKEND", "NUM_COURSES_ADVANCED_FRONTEND",
-    "AVG_SCORE_DATASCIENCE", "AVG_SCORE_BACKEND", "AVG_SCORE_FRONTEND"] = StandardScaler().fit_transform(data[
+    "AVG_SCORE_DATASCIENCE", "AVG_SCORE_BACKEND", "AVG_SCORE_FRONTEND"]] = StandardScaler().fit_transform(data[[
      "HOURS_DATASCIENCE", "HOURS_BACKEND", "HOURS_FRONTEND",
     "NUM_COURSES_BEGINNER_DATASCIENCE", "NUM_COURSES_BEGINNER_BACKEND", "NUM_COURSES_BEGINNER_FRONTEND",
     "NUM_COURSES_ADVANCED_DATASCIENCE", "NUM_COURSES_ADVANCED_BACKEND", "NUM_COURSES_ADVANCED_FRONTEND",
-    "AVG_SCORE_DATASCIENCE", "AVG_SCORE_BACKEND", "AVG_SCORE_FRONTEND"])
+    "AVG_SCORE_DATASCIENCE", "AVG_SCORE_BACKEND", "AVG_SCORE_FRONTEND"]])
         # Devolvemos un nuevo dataframe de datos sin las columnas no deseadas
         return data
